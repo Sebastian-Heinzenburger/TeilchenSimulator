@@ -1,27 +1,21 @@
 let tempSlider;
 let temp = 20;
 
-let count = 40;
+let count = 30;
 let particles = [];
-var label;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+
   group = createDiv((''));
-  group.position(20, 20);
-  tempSlider = createSlider(0, 373, 273);
+  tempSlider = createSlider(0, 373, 20);
+
   tempSlider.parent(group);
+
+  group.position(20, 20);
   tempSlider.position(95, -3, "relative")
-
-  createParticles();
+  for (let i = 0; i < count; i++) { particles.push(new Particle()); }
 }
-
-function createParticles() {
-    for (let i = 0; i < count; i++) {
-        particles.push(new Particle());
-    }
-}
-
 
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
