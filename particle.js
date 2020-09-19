@@ -30,11 +30,19 @@ class Particle {
         if (this.position.y < 0 || this.position.y > windowHeight) {
             this.direction.y = -this.direction.y;
         }
-
+        
         particles.forEach(p => {
+            if (this.hasJustFlipped == 0) {
             if ((dist(p.position.x, p.position.y, this.position.x, this.position.y) < 10) && p !== this) {
-                this.direction.y = -this.direction.y;
-                this.direction.x = -this.direction.x;
+                this.hasJustFlipped = 15;
+                if (abs(this.position.x - p.position.x) > abs(this.position.y - p.position.y)) {
+                    this.direction.x = -this.direction.x;
+                } else {
+                    this.direction.y = -this.direction.y;
+                }
+            }
+            } else {
+                this.hasJustFlipped--;
             }
         });
 
