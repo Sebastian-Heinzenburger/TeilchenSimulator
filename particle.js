@@ -3,6 +3,7 @@ class Particle {
     constructor() {
         this.velocity;
         let xDir, yDir;
+        this.ticksToFlipped = 0;
         var direction = random(360)
 
         if (direction < 90) {
@@ -32,17 +33,17 @@ class Particle {
         }
         
         particles.forEach(p => {
-            if (this.hasJustFlipped == 0) {
-            if ((dist(p.position.x, p.position.y, this.position.x, this.position.y) < 10) && p !== this) {
-                this.hasJustFlipped = 15;
-                if (abs(this.position.x - p.position.x) > abs(this.position.y - p.position.y)) {
-                    this.direction.x = -this.direction.x;
-                } else {
-                    this.direction.y = -this.direction.y;
+            if (this.ticksToFlipped == 0) {
+                if ((dist(p.position.x, p.position.y, this.position.x, this.position.y) < 10) && p !== this) {
+                    this.ticksToFlipped = 15;
+                    if (abs(this.position.x - p.position.x) > abs(this.position.y - p.position.y)) {
+                        this.direction.x = -this.direction.x;
+                    } else {
+                        this.direction.y = -this.direction.y;
+                    }
                 }
-            }
             } else {
-                this.hasJustFlipped--;
+                this.ticksToFlipped--;
             }
         });
 
