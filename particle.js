@@ -33,9 +33,9 @@ class Particle {
         }
         
         particles.forEach(p => {
-            if (this.ticksToFlipped == 0) {
+            if (this.ticksToFlipped <= 0) {
                 if ((dist(p.position.x, p.position.y, this.position.x, this.position.y) < 10) && p !== this) {
-                    this.ticksToFlipped = 15*(373-temp);
+                    this.ticksToFlipped = (temp*0.1);
                     if (abs(this.position.x - p.position.x) > abs(this.position.y - p.position.y)) {
                         this.direction.x = -this.direction.x;
                     } else {
