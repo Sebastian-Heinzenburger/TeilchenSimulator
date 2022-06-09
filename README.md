@@ -1,5 +1,9 @@
-# TeilchenSimulator
+# ParticleSimulator
 -----
 
+The site is hosted on GitHub Pages and can be found [here](https://sebastian-heinzenburger.github.io/TeilchenSimulator/)
 
-known issue: after fixing the faulty particle collision particles now stick together at low temperatures
+![preview](preview.png)
+
+#### known issues:
+- [ ] in some edge cases particles can stick together at low temperatures
